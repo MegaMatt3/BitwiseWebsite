@@ -14,6 +14,10 @@ a {
   text-decoration: none;
 }
 
+.branded {
+  font-family: 'Anonymous Pro', monospace;
+}
+
 #content {
   align-items: center;
   color: #505050;
@@ -23,13 +27,15 @@ a {
   justify-content: center;
 }
 
+#content .slide-in {
+  opacity: 0;
+  transform: translateY(75%);
+}
+
 #title {
-  font-family: 'Anonymous Pro', monospace;
   font-size: 1.75em;
   margin-top: -10vh;
-  opacity: 0;
   text-align: center;
-  transform: translateY(75%);
   transition: opacity 1s linear 0.5s, transform 1s cubic-bezier(.4,0,.2,1) 0.25s
 }
 
@@ -37,17 +43,19 @@ a {
   transition: color linear 2s 1.75s;
 }
 
-#email {
-  bottom: 15px;
-  font-size: 1.2em;
-  opacity: 0;
-  position: fixed;
-  transform: translateY(75%);
+#subtitle {
+  text-align: center;
   transition: opacity 1s linear 1s, transform 1s cubic-bezier(.4,0,.2,1) 0.75s;
 }
 
-#content.show #title,
-#content.show #email {
+#email {
+  bottom: 15px;
+  font-size: 1.2em;
+  position: fixed;
+  transition: opacity 1s linear 1s, transform 1s cubic-bezier(.4,0,.2,1) 0.75s;
+}
+
+#content.show .slide-in {
   opacity: 1;
   transform: translateY(0);
 }
