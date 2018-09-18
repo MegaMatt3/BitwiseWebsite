@@ -1,0 +1,53 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  background-color: #fbfbfb;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#content {
+  align-items: center;
+  color: #505050;
+  display: flex;
+  font-family: 'PT Sans', sans-serif;
+  height: 100%;
+  justify-content: center;
+}
+
+#title {
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 1.75em;
+  margin-top: -10vh;
+  opacity: 0;
+  text-align: center;
+  transform: translateY(75%);
+  transition: opacity 1s linear 0.5s, transform 1s cubic-bezier(.4,0,.2,1) 0.25s
+}
+
+#title .colored {
+  transition: color linear 2s 1.75s;
+}
+
+#email {
+  bottom: 15px;
+  font-size: 1.2em;
+  opacity: 0;
+  position: fixed;
+  transform: translateY(75%);
+  transition: opacity 1s linear 1s, transform 1s cubic-bezier(.4,0,.2,1) 0.75s;
+}
+
+#content.show #title,
+#content.show #email {
+  opacity: 1;
+  transform: translateY(0);
+}
