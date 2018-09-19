@@ -18,6 +18,10 @@ a {
   font-family: 'Anonymous Pro', monospace;
 }
 
+.faded {
+  opacity: 0.6;
+}
+
 #content {
   align-items: center;
   color: #505050;
@@ -47,20 +51,34 @@ a {
 #subtitle {
   align-items: center;
   display: flex;
-  opacity: 0.7;
+  font-size: 0.95em;
+  margin-top: 0.75em;
   text-align: center;
-  transform: scale(0.8);
-  transition: opacity 1s linear 1s, transform 1s cubic-bezier(.4,0,.2,1) 0.75s;
+  transition: opacity 1s linear 0.75s, transform 1s cubic-bezier(.4,0,.2,1) 0.5s;
+}
+
+#subtitle > span {
+  margin-right: 0.3em;
+  position: relative;
+  top: 2px;
+}
+
+#subtitle > img {
+  height: 1.75em;
 }
 
 #email {
   bottom: 15px;
   font-size: 1.2em;
   position: fixed;
-  transition: opacity 1s linear 1s, transform 1s cubic-bezier(.4,0,.2,1) 0.75s;
+  transition: opacity 1s linear 1.5s, transform 1s cubic-bezier(.4,0,.2,1) 1.25s;
 }
 
 #content.show .slide-in {
   opacity: 1;
   transform: translateY(0);
+}
+
+#content.show .slide-in.faded {
+  opacity: 0.6;
 }
