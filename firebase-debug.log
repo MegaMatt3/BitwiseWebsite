@@ -1,24 +1,25 @@
-[debug] [2018-09-25T00:36:31.707Z] ----------------------------------------------------------------------
-[debug] [2018-09-25T00:36:31.710Z] Command:       /usr/local/bin/node /Users/MattAndAllison/.npm-global/bin/firebase serve
-[debug] [2018-09-25T00:36:31.710Z] CLI Version:   4.2.1
-[debug] [2018-09-25T00:36:31.710Z] Platform:      darwin
-[debug] [2018-09-25T00:36:31.710Z] Node Version:  v8.11.3
-[debug] [2018-09-25T00:36:31.710Z] Time:          Mon Sep 24 2018 20:36:31 GMT-0400 (EDT)
-[debug] [2018-09-25T00:36:31.710Z] ----------------------------------------------------------------------
+[debug] [2018-10-10T00:31:56.006Z] ----------------------------------------------------------------------
+[debug] [2018-10-10T00:31:56.008Z] Command:       /usr/local/bin/node /Users/MattAndAllison/.npm-global/bin/firebase serve
+[debug] [2018-10-10T00:31:56.008Z] CLI Version:   5.0.1
+[debug] [2018-10-10T00:31:56.008Z] Platform:      darwin
+[debug] [2018-10-10T00:31:56.008Z] Node Version:  v8.11.3
+[debug] [2018-10-10T00:31:56.009Z] Time:          Tue Oct 09 2018 20:31:56 GMT-0400 (EDT)
+[debug] [2018-10-10T00:31:56.009Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-09-25T00:36:31.720Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-09-25T00:36:31.720Z] > authorizing via signed-in user
-[debug] [2018-09-25T00:36:31.723Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/bitwise-212af  
+[debug] [2018-10-10T00:31:56.019Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-10T00:31:56.019Z] > authorizing via signed-in user
+[debug] [2018-10-10T00:31:56.019Z] [iam] checking project bitwise-212af for permissions ["firebase.projects.get"]
+[debug] [2018-10-10T00:31:56.021Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bitwise-212af:testIamPermissions  
+
+[debug] [2018-10-10T00:31:56.213Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-10T00:31:56.214Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bitwise-212af  
  
-[debug] [2018-09-25T00:36:32.049Z] <<< HTTP RESPONSE 200
-[debug] [2018-09-25T00:36:32.051Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bitwise-212af  
- 
-[debug] [2018-09-25T00:36:32.190Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-10T00:31:56.531Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/MattAndAllison/WebstormProjects/Bitwise'...
 [info] 
-[debug] [2018-09-25T00:36:32.192Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/235901579774/clients/_:getWebAppConfig  
+[debug] [2018-10-10T00:31:56.533Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/235901579774/clients/_:getWebAppConfig  
  
-[debug] [2018-09-25T00:36:32.422Z] <<< HTTP RESPONSE 200
-[info] i  hosting[bitwise-212af]: Serving hosting files from: dist/
-[info] ✔  hosting[bitwise-212af]: Local server: http://localhost:5000
+[debug] [2018-10-10T00:31:57.048Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: dist/
+[info] ✔  hosting: Local server: http://localhost:5000

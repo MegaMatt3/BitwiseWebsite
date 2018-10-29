@@ -1,14 +1,14 @@
 window.onload = function() {
-  const letters = document.body.querySelectorAll('#title > .colored');
-  const letterColors = [
+  const coloredItems = document.body.querySelectorAll('#content .colored');
+  const colors = [
     '#1b75bc',
     '#bc441b',
     '#901bbc',
     '#1bbc84'
   ];
 
-  letters.forEach((el) => {
-    el.style.color = letterColors[randomIntFromInterval(0, letterColors.length-1)];
+  coloredItems.forEach((el) => {
+    el.style.color = colors[randomIntFromInterval(0, colors.length-1)];
   });
 
   // fade in elements

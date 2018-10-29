@@ -12,6 +12,12 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  filter: grayscale(100%);
+  transition: filter 200ms linear;
+}
+
+a:hover {
+  filter: grayscale(0);
 }
 
 .branded {
