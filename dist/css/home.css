@@ -46,7 +46,7 @@ a {
 }
 
 #title > img {
-  width: 20vw;
+  width: 400px;
 }
 
 #footer {
@@ -54,4 +54,10 @@ a {
   font-size: 1.2em;
   position: fixed;
   transition: opacity 1s linear 0.75s, transform 1s cubic-bezier(.4,0,.2,1) 0.5s;
+}
+
+@media (max-width: 668px) {
+	#title > img {
+		width: 300px
+	}
 }
