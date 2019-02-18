@@ -16,12 +16,112 @@ import glob from 'glob';
 import del from 'del';
 import ssri from 'ssri';
 import modernizr from 'modernizr';
+import realFavicon from 'gulp-real-favicon';
 
 import pkg from './package.json';
 import modernizrConfig from './modernizr-config.json';
 
-
 const dirs = pkg['h5bp-configs'].directories;
+
+// File where the favicon markups are stored
+var FAVICON_DATA_FILE = 'faviconData.json';
+
+// Generate the icons. This task takes a few seconds to complete.
+// You should run it at least once to create the icons. Then,
+// you should run it whenever RealFaviconGenerator updates its
+// package (see the check-for-favicon-update task below).
+gulp.task('generate-favicon', (done) => {
+	realFavicon.generateFavicon({
+		masterPicture: `${dirs.src}/img/master-favicon.png`,
+		dest: `${dirs.src}/img/favicons`,
+		iconsPath: '/img/favicons',
+		design: {
+			ios: {
+				pictureAspect: 'backgroundAndMargin',
+				backgroundColor: '#ffffff',
+				margin: '14%',
+				assets: {
+					ios6AndPriorIcons: false,
+					ios7AndLaterIcons: false,
+					precomposedIcons: false,
+					declareOnlyDefaultIcon: true
+				},
+				appName: 'Bitwise Creative'
+			},
+			desktopBrowser: {},
+			windows: {
+				pictureAspect: 'noChange',
+				backgroundColor: '#16396c',
+				onConflict: 'override',
+				assets: {
+					windows80Ie10Tile: false,
+					windows10Ie11EdgeTiles: {
+						small: false,
+						medium: true,
+						big: false,
+						rectangle: false
+					}
+				},
+				appName: 'Bitwise Creative'
+			},
+			androidChrome: {
+				pictureAspect: 'noChange',
+				themeColor: '#ffffff',
+				manifest: {
+					name: 'Bitwise Creative',
+					display: 'browser',
+					orientation: 'notSet',
+					onConflict: 'override',
+					declared: true
+				},
+				assets: {
+					legacyIcon: false,
+					lowResolutionIcons: false
+				}
+			},
+			safariPinnedTab: {
+				pictureAspect: 'silhouette',
+				themeColor: '#54ba00'
+			}
+		},
+		settings: {
+			scalingAlgorithm: 'Mitchell',
+			errorOnImageTooSmall: false,
+			readmeFile: true,
+			htmlCodeFile: true,
+			usePathAsIs: false
+		},
+		versioning: {
+			paramName: 'v',
+			paramValue: 'KmngEdNXgy'
+		},
+		markupFile: FAVICON_DATA_FILE
+	}, function() {
+		done();
+	});
+});
+
+// Inject the favicon markups in your HTML pages. You should run
+// this task whenever you modify a page. You can keep this task
+// as is or refactor your existing HTML pipeline.
+gulp.task('inject-favicon-markups', () => {
+	return gulp.src([ `${dirs.src}/*.html` ])
+		.pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
+		.pipe(gulp.dest(`${dirs.src}`));
+});
+
+// Check for updates on RealFaviconGenerator (think: Apple has just
+// released a new Touch icon along with the latest version of iOS).
+// Run this task from time to time. Ideally, make it part of your
+// continuous integration system.
+gulp.task('check-for-favicon-update', (done) => {
+	const currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
+	realFavicon.checkForUpdates(currentVersion, function(err) {
+		if (err) {
+			throw err;
+		}
+	});
+});
 
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |

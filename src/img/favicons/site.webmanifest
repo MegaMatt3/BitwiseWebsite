@@ -1,0 +1,18 @@
+{
+    "name": "Bitwise Creative",
+    "short_name": "Bitwise Creative",
+    "icons": [
+        {
+            "src": "/img/favicons/android-chrome-192x192.png?v=KmngEdNXgy",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/img/favicons/android-chrome-256x256.png?v=KmngEdNXgy",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff"
+}
